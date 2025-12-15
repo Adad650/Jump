@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://ivwf6ayqycpo"]
+
+[ext_resource type="Texture2D" uid="uid://b5mcv41w0ww46" path="res://assets/brackeys_platformer_assets/sprites/slime_green.png" id="1_7k104"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p1mj"]
+atlas = ExtResource("1_7k104")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
+atlas = ExtResource("1_7k104")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("1_7k104")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("1_7k104")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4w8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p1mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_c4w8v")
+autoplay = "default"
+frame_progress = 0.477364

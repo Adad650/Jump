@@ -53,7 +53,7 @@ scale = Vector2(0.921875, 0.890625)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.17793
+frame_progress = 0.960371
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 5
