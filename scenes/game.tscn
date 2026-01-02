@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://beog1eggdv0y3" path="res://assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dludh8hv17vyd" path="res://scenes/portal.tscn" id="11_kvpfn"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
 texture = ExtResource("2_lnu2h")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -179,7 +179,7 @@ texture = ExtResource("2_lnu2h")
 
 [sub_resource type="TileSet" id="TileSet_fc0e3"]
 physics_layer_0/collision_layer = 3
-sources/1 = SubResource("TileSetAtlasSource_feb5d")
+sources/1 = SubResource("TileSetAtlasSource_dinhu")
 
 [sub_resource type="Animation" id="Animation_lbhrr"]
 length = 0.001
@@ -263,6 +263,12 @@ limit_bottom = 75
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(1742, 162)
+stream = ExtResource("10_vtaks")
+autoplay = true
+bus = &"Music"
 
 [node name="Platform1" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(239, 7)
@@ -442,11 +448,6 @@ offset_bottom = -349.0
 theme_override_colors/font_color = Color(0.984546, 0.984547, 0.984546, 1)
 text = "Down the gap and right"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_vtaks")
-autoplay = true
-bus = &"Music"
-
 [node name="portals" type="Node" parent="."]
 
 [node name="LVL1Portal" parent="portals" instance=ExtResource("11_kvpfn")]
@@ -519,4 +520,5 @@ shape = SubResource("CapsuleShape2D_kvpfn")
 
 [connection signal="body_entered" from="exitZoneLVL1" to="." method="_on_exit_zone_lvl_1_body_entered"]
 
+[editable path="Player"]
 [editable path="portals/LVL1 Exit portal"]
