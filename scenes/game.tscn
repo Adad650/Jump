@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://1wajiwtuxm2v"]
+[gd_scene load_steps=25 format=3 uid="uid://1wajiwtuxm2v"]
 
+[ext_resource type="Script" uid="uid://bmdixmrjw58fk" path="res://scenes/game.gd" id="1_dinhu"]
 [ext_resource type="Script" uid="uid://cdy42kkmb38ql" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://b2me565nh1hh2" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://cbmnhpm7vpmxx" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_lnu2h"]
@@ -236,7 +237,11 @@ size = Vector2(11, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
 size = Vector2(12, 10)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kvpfn"]
+height = 52.0
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_dinhu")
 
 [node name="TileMap" type="TileMap" parent="."]
 physics_interpolation_mode = 1
@@ -458,15 +463,31 @@ scale = Vector2(0.07, 0.07)
 [node name="ExitPoint" type="Marker2D" parent="portals/TutorialPortal"]
 position = Vector2(10085.7, 500)
 
+[node name="LVL1 Exit portal" parent="portals" instance=ExtResource("11_kvpfn")]
+position = Vector2(4689, -228)
+scale = Vector2(0.1, 0.1)
+
+[node name="AnimatedSprite2D" parent="portals/LVL1 Exit portal" index="0"]
+position = Vector2(599.99994, -9.999999)
+
+[node name="Area2D" parent="portals/LVL1 Exit portal" index="1"]
+position = Vector2(0, -129.99998)
+
+[node name="CollisionShape2D" parent="portals/LVL1 Exit portal/Area2D" index="0"]
+position = Vector2(-409.99994, 830)
+
+[node name="ExitPoint" type="Marker2D" parent="portals/LVL1 Exit portal"]
+position = Vector2(-419.99997, 829.99994)
+
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_gee14")
 
 [node name="Label" type="Label" parent="GameManager"]
-offset_left = 4625.0
-offset_top = -261.0
-offset_right = 4724.0
-offset_bottom = -240.0
+offset_left = 4607.0
+offset_top = -268.0
+offset_right = 4706.0
+offset_bottom = -247.0
 theme_override_fonts/font = ExtResource("9_0tnpc")
 theme_override_font_sizes/font_size = 8
 text = "            0 coins"
@@ -488,3 +509,14 @@ position = Vector2(3496, -344)
 
 [node name="coin7" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(4384, -115)
+
+[node name="exitZoneLVL1" type="Area2D" parent="."]
+position = Vector2(82, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exitZoneLVL1"]
+position = Vector2(4667, -261)
+shape = SubResource("CapsuleShape2D_kvpfn")
+
+[connection signal="body_entered" from="exitZoneLVL1" to="." method="_on_exit_zone_lvl_1_body_entered"]
+
+[editable path="portals/LVL1 Exit portal"]
