@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://v2588j16vdxd" path="res://assets/brackeys_platformer_assets/sprites/Screenshot 2025-12-16 at 7.48.20 PM.png" id="1_yqeox"]
 [ext_resource type="Script" uid="uid://cgrnkd1mpo7ho" path="res://scripts/MainMenu.gd" id="2_vjb58"]
-[ext_resource type="Script" uid="uid://cm5wdjx2mylac" path="res://scenes/lvl_2.gd" id="3_con2f"]
+[ext_resource type="Script" uid="uid://hvge53gq70em" path="res://scenes/lvl_2_button.gd" id="3_mhnvy"]
 [ext_resource type="Script" uid="uid://x8pce7ytld81" path="res://scenes/infiniteRunnerButton.gd" id="4_mhnvy"]
 
 [node name="Control" type="Control"]
@@ -42,10 +42,11 @@ text = "Level 1"
 script = ExtResource("2_vjb58")
 
 [node name="LVL2" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 60
 text = "Level 2"
-script = ExtResource("3_con2f")
+script = ExtResource("3_mhnvy")
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -53,5 +54,6 @@ theme_override_font_sizes/font_size = 64
 text = "Infinite Runner"
 script = ExtResource("4_mhnvy")
 
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LVL1" to="CenterContainer/VBoxContainer/LVL1" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LVL2" to="CenterContainer/VBoxContainer/LVL2" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="CenterContainer/VBoxContainer/Button" method="_on_pressed"]
