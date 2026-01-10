@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfdgitc5ppnf6"]
+[gd_scene load_steps=9 format=3 uid="uid://cfdgitc5ppnf6"]
 
 [ext_resource type="Texture2D" uid="uid://cbmnhpm7vpmxx" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_yxjv1"]
 [ext_resource type="PackedScene" uid="uid://b2me565nh1hh2" path="res://scenes/player.tscn" id="2_q5jl0"]
 [ext_resource type="PackedScene" uid="uid://c00axm4gryeim" path="res://scenes/killzone.tscn" id="3_o7ycc"]
 [ext_resource type="AudioStream" uid="uid://beog1eggdv0y3" path="res://assets/brackeys_platformer_assets/music/time_for_adventure.mp3" id="4_jaojv"]
+[ext_resource type="PackedScene" uid="uid://dludh8hv17vyd" path="res://scenes/portal.tscn" id="5_3n54i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7ycc"]
 texture = ExtResource("1_yxjv1")
@@ -210,5 +211,12 @@ bus = &"Music"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone2"]
 shape = SubResource("WorldBoundaryShape2D_jaojv")
+
+[node name="LVL1Portal" parent="." instance=ExtResource("5_3n54i")]
+position = Vector2(3278, -627)
+scale = Vector2(0.07, 0.07)
+
+[node name="ExitPoint" type="Marker2D" parent="LVL1Portal"]
+position = Vector2(8542.86, 3357.14)
 
 [editable path="Player"]
